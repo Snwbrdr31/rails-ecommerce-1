@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root 'products#index'
+
+  resources :products
+  # get 'products', 'products#index', as: 'products'
+  # get 'products/:id', 'products#show', as: 'product'
+  #
+  # post 'products', 'products#create', as: 'product'
+  #
+  # put 'products/:id', 'products#update', as: 'product'
+  #
+  # delete 'products/:id', 'products#destroy', as: 'product'
+
 end
