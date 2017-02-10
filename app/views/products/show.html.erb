@@ -1,1 +1,6 @@
-<h1> Product Name </h1>
+<h1><%= @product.name %></h1>
+<p>Price: <%= @product.price %></p>
+<p>Description: <%= @product.description %></p>
+
+<button class="btn edit-btn">Edit Product</button>
+<%= render(partial: 'form') %>
