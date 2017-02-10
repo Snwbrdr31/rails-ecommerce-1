@@ -1,4 +1,4 @@
-<div class="edit-form">
+<div class="product-form">
   <%= form_for @product do |f| %>
     <div class="row">
       <div class= "col s12 m6">
@@ -22,9 +22,11 @@
       <div class="col s6 m3">
         <%= f.submit class: "btn" %>
       </div>
-      <div class="col s6 m3">
-        <%= link_to "Delete", product_path(@product), class: "btn", method: :delete %>
-      </div>
+      <% unless @product.id.nil? %>
+        <div class="col s6 m3">
+          <%= link_to "Delete", product_path(@product), class: "btn", method: :delete %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>

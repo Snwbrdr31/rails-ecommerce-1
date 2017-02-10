@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".edit-btn").on('click', function(){
-    $(".edit-form").slideToggle("slow");
+  $(".form-btn").on('click', function(){
+    $(".product-form").slideToggle("slow");
   });
 });

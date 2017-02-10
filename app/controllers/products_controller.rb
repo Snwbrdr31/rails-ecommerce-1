@@ -4,14 +4,15 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @product = Product.new
   end
 
   def show
   end
 
   def create
-    @product = Product.new
-    if @produce.create(product_params)
+    @product = Product.new(product_params)
+    if @product.save
       redirect_to product_path(@product)
     else
     end
