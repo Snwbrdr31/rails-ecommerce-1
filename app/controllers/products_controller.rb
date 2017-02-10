@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
   def index
-    @products = Products.all
+    @products = Product.all
   end
 
   def show
