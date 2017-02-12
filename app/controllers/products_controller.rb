@@ -4,17 +4,24 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    @product = Product.new
   end
 
   def show
   end
 
+  def new
+    @product = Product.new
+  end
+
   def create
     @product = Product.new(product_params)
     if @product.save
+      flash[:success] = "Product Added"
       redirect_to product_path(@product)
     else
+      @products = Product.all
+      flash.now[:error] = @product.errors.full_messages.join('.')
+      render :new
     end
   end
 
@@ -22,13 +29,16 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to product_path(@product)
     else
+      flash.now[:error] = @product.errors.full_messages.join('.')
       render :show
     end
   end
 
   def destroy
     if @product.destroy
-      redirect_to products_path
+      @products = Product.all
+      flash.now[:success] = "Product Deleted"
+      render :index
     else
       render :show
     end

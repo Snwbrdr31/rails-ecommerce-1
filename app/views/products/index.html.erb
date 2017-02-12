@@ -1,5 +1,5 @@
 <h1>All Products</h1>
-# TODO: fix fluid grid
+<!-- # TODO: fix fluid grid -->
 <% @products.each do |product| %>
   <div class="row">
     <div class="col s12">
@@ -13,5 +13,4 @@
     </div>
   </div>
 <% end %>
-<button class="waves-effect waves-light btn form-btn">Add Product</button>
-<%= render(partial: 'form') %>
+<%= link_to "Add Product", new_product_path, class: "waves-effect waves-light btn form-btn" %>

@@ -1,4 +1,4 @@
-<div class="product-form">
+<div class="product-form <% unless @product.id.nil? %> product-form-hidden <%end%>">
   <%= form_for @product do |f| %>
     <div class="row">
       <div class= "col s12 m6">
