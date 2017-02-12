@@ -2,7 +2,6 @@
 Product.create({name: Faker::Commerce.product_name,
                 price: Faker::Commerce.price,
                 description: Faker::Lorem.sentence})
-end
 
 user = User.new
 user.email = 'user@test.com'
