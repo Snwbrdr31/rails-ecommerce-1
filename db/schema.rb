@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 20170213211444) do
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -50,9 +52,9 @@ ActiveRecord::Schema.define(version: 20170213211444) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "first_name",             default: "",    null: false
-    t.string   "last_name",              default: "",    null: false
-    t.boolean  "admin",                  default: false, null: false
+    t.string   "first_name",                             null: false
+    t.string   "last_name",                              null: false
+    t.boolean  "admin",                  default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
