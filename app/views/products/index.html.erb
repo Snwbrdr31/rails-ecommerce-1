@@ -1,16 +1,16 @@
 <h1>All Products</h1>
 <!-- # TODO: fix fluid grid -->
-<% @products.each do |product| %>
-  <div class="row">
-    <div class="col s12">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"><%= link_to product.name, product_path(product)%></span>
-          <p><%= product.price %></p>
-          <p><%= product.description %> </p>
+<div class="row">
+  <div class="col s12 cards-container">
+    <% @products.each do |product| %>
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title"><%= link_to product.name, product_path(product)%></span>
+            <p><%= product.price %></p>
+            <p><%= product.description %> </p>
+          </div>
         </div>
-      </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 <%= link_to "Add Product", new_product_path, class: "waves-effect waves-light btn form-btn" %>
