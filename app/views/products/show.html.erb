@@ -2,5 +2,7 @@
 <p>Price: <%= @product.price %></p>
 <p>Description: <%= @product.description %></p>
 
-<button class="btn form-btn">Edit Product</button>
-<%= render(partial: 'form') %>
+<% if current_user.admin %>
+  <button class="btn form-btn">Edit Product</button>
+  <%= render(partial: 'form') %>
+<% end %>
