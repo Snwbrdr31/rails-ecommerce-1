@@ -1,2 +1,28 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h1>Shopping Cart</h1>
+<table class="highlight">
+  <thead>
+    <tr>
+      <th data-field="name">Item</th>
+      <th data-field="price">Price</th>
+    </tr
+  </thead>
+  <tbody>
+    <% total = 0 %>
+    <% @cart.purchases.each do |purchase| %>
+      <% product = Product.find(purchase.product_id) %>
+      <% total += product.price.to_f %>
+      <tr>
+        <td><%= link_to product.name, product_path(product) %></td>
+        <td><%= product.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot class="grey">
+    <tr>
+      <td>Total: </td>
+      <td><%= total.to_s %></td>
+    </tr>
+  </tfoot>
+</table>
+
+<button class="btn">Proceed to Checkout</button>
