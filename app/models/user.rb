@@ -8,4 +8,9 @@ class User < ApplicationRecord
 
   has_one :cart
 
+  after_create :create_cart
+
+  def create_cart
+    Cart.create(user_id: self.id)
+  end
 end
