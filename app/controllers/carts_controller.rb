@@ -12,6 +12,13 @@ class CartsController < ApplicationController
     redirect_to product_path(@product)
   end
 
+  def destroy
+    @purchase = Purchase.find(params[:purchase_id])
+    @purchase.destroy
+    flash[:success] = 'Removed From Cart'
+    redirect_to cart_path(@cart)
+  end
+
   private
     def set_cart
       @cart = Cart.find(params[:id])

@@ -4,6 +4,7 @@
     <tr>
       <th data-field="name">Item</th>
       <th data-field="price">Price</th>
+      <th></th>
     </tr
   </thead>
   <tbody>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= link_to product.name, product_path(product) %></td>
         <td><%= product.price %></td>
+        <td><%= link_to "Remove", remove_from_cart_path(@cart, purchase), method: :delete%></td>
       </tr>
     <% end %>
   </tbody>
@@ -21,6 +23,7 @@
     <tr>
       <td>Total: </td>
       <td><%= total.to_s %></td>
+      <td></td>
     </tr>
   </tfoot>
 </table>
