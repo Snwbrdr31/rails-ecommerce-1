@@ -1,7 +1,11 @@
 20.times do
 Product.create({name: Faker::Commerce.product_name,
                 price: Faker::Commerce.price,
-                description: Faker::Lorem.sentence})
+                description: Faker::Lorem.sentence,
+                })
+end
+
+Product.all.each { |product| product.image = File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/sampleimages', '*')).sample); product.save! }
 
 user = User.new
 user.email = 'user@test.com'

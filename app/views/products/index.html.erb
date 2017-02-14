@@ -3,6 +3,9 @@
   <div class="col s12 cards-container">
     <% @products.each do |product| %>
         <div class="card blue-grey darken-1">
+          <div class="card-image">
+            <%= image_tag product.image.url %>
+          </div>
           <div class="card-content white-text">
             <span class="card-title"><%= link_to product.name, product_path(product), class: "orange-text"%></span>
             <p class="product-description"><%= product.description %> </p>
