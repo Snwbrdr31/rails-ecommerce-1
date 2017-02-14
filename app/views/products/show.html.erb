@@ -2,6 +2,8 @@
 <p>Price: <%= @product.price %></p>
 <p>Description: <%= @product.description %></p>
 
+<%= link_to 'Add To Cart', add_to_cart_path(current_user.cart, @product), method: :post, class: 'btn'%>
+
 <% if current_user.admin %>
   <button class="btn form-btn">Edit Product</button>
   <%= render(partial: 'form') %>
