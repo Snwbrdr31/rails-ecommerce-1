@@ -1,32 +1,26 @@
-<div class="product-form <% unless @product.id.nil? %> product-form-hidden <%end%>">
-  <%= form_for @product do |f| %>
-    <div class="row">
-      <div class= "col s12 m6">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </div>
-    </div>
-    <div class="row">
-      <div class= "col s12 m6">
-        <%= f.label :price %>
-        <%= f.text_field :price %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12 m6">
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s6 m3">
-        <%= f.submit class: "btn" %>
-      </div>
-      <% unless @product.id.nil? %>
-        <div class="col s6 m3">
-          <%= link_to "Delete", product_path(@product), class: "btn", method: :delete %>
+<div class="row">
+  <div class="col s12 m8 l6 offset-m2 offset-l3">
+    <div class="product-form <% unless @product.id.nil? %> product-form-hidden <%end%>">
+      <%= form_for @product do |f| %>
+        <div>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+        <div>
+          <%= f.label :price %>
+          <%= f.text_field :price %>
+        </div>
+        <div>
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+        </div>
+        <div>
+          <%= f.submit class: "btn green" %>
+          <% unless @product.id.nil? %>
+              <%= link_to "Delete Product", product_path(@product), class: "btn red", method: :delete %>
+          <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
