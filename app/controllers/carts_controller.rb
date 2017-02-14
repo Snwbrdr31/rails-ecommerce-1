@@ -14,6 +14,6 @@ class CartsController < ApplicationController
 
   private
     def set_cart
-      @cart = Cart.find(params[:format])
+      @cart = Cart.find(params[:id])
     end
 end
