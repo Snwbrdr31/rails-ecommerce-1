@@ -27,10 +27,16 @@ gem 'materialize-sass'
 gem 'paperclip'
 gem 'faker'
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'haml-rails'
+# Add Delayed Job Gem
+gem 'delayed_job_active_record'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
+  gem 'dotenv-rails'
+  gem 'letter_opener'
 end
 
 group :development do

@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-
-
-  devise_for :users
-
   root 'products#index'
 
+
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks'}
+
   resources :products
+  # resources :signups
+  resources :users, only: :create
+  resources :newsletter, only: [:new, :create]
+
+  post 'signup/create', to: 'signup#create', as: 'signup'
 
   # # TODO: fix routes
   # get 'products', to: 'products#index', as: 'products'

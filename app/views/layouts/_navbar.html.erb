@@ -20,6 +20,9 @@
     <ul class="side-nav" id="mobile-demo">
       <% if user_signed_in? %>
         <li>
+          <%= link_to "Newsletter Sign Up", newsletter_index_path %>
+        </li>
+        <li>
           <%=link_to "Checkout", cart_path(current_user.cart) %>
         </li>
         <li>
